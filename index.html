@@ -1,24 +1,20 @@
-
-    <!DOCTYPE html>
+ <!DOCTYPE html>
     <html>
     <head>
-      <title>Análisis Estadístico Delictual Últimos 10 días de JPSD I</title>
+      <title>Análisis Estadístico Delictual Últimos 7 días - JPD Godoy Cruz</title>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f4f4f9; }
         .container { max-width: 800px; margin: auto; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        .header { background-color: #1565c0; color: white; padding: 10px; font-size: 14px; font-weight: bold; margin-bottom: 20px; text-align: center; }
+        .header { background-color: #0a2a6b; color: white; padding: 10px; font-size: 14px; font-weight: bold; margin-bottom: 20px; text-align: center; }
         .chart-container { width: 100%; min-height: 300px; margin-bottom: 20px; }
         h1 { font-size: 20px; text-align: center; color: #333; }
         h2 { font-size: 18px; margin-top: 25px; text-align: center; color: #333; }
         p { text-align: center; color: #555; }
         .date-range { color: #555; margin-bottom: 30px; }
-        
-        /* Ajuste para centrar el resumen */
         .summary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 20px; justify-content: center; }
         .summary-box { border: 1px solid #ddd; padding: 15px; border-radius: 5px; background-color: #f9f9f9; text-align: center;}
-        
         .summary-title { font-weight: bold; font-size: 16px; margin-bottom: 5px; }
         .summary-value { font-size: 14px; }
         .variation { font-weight: bold; margin-top: 10px; }
@@ -26,8 +22,6 @@
         .variation-down { color: #388e3c; }
         .variation-stable { color: #757575; }
         .table-container { overflow-x: auto; margin-bottom: 25px; }
-        
-        /* Ajuste para tablas más compactas */
         table { width: 100%; border-collapse: collapse; min-width: 500px; }
         th, td { border: 1px solid #ddd; padding: 5px; text-align: left; font-size: 11px; }
         th { background-color: #f2f2f2; font-weight: bold; }
@@ -35,21 +29,18 @@
         .conclusion { font-style: italic; color: #555; text-align: center; padding: 10px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; margin-top: 10px; font-size: 14px; }
         .conclusion strong { color: #1565c0; }
         .footer { font-size: 10px; color: #777; margin-top: 40px; }
-        
-        /* Lógica Termográfica */
         .muy-caliente { background-color: #f44336; color: white; font-weight: bold; }
         .caliente { background-color: #ff9800; color: white; font-weight: bold; }
         .frio { background-color: #48b8d4; color: white; font-weight: bold; }
         .neutro { background-color: #ffeb3b; font-weight: bold; }
+        @media (max-width: 720px) {
+  .summary-grid { grid-template-columns: 1fr; }
+  .summary-box { padding: 12px; }
+  .summary-title { font-size: 14px; }
+  .summary-value { font-size: 12px; }
+  .variation { font-size: 13px; }
+}
 
-        /* Media query para móviles */
-        @media (max-width: 600px) {
-          .summary-grid { grid-template-columns: 1fr; }
-          h1 { font-size: 16px; }
-          .container { padding: 10px; }
-          .chart-container { min-height: 250px; }
-          th, td { padding: 4px; font-size: 10px; }
-        }
       </style>
       <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
       <script type="text/javascript">
@@ -67,16 +58,17 @@
         function drawChartDelitos() {
           var data = google.visualization.arrayToDataTable([
             ['Categoría', 'Periodo 1', 'Periodo 2'],
-            ['Robo en Banda', 1, 0],
-['Robo Agrav. EGT', 1, 0],
-['Robo', 32, 26],
-['Hurto Agrav.', 6, 5],
-['Hurto', 17, 15],
-['Robo x Esca.', 1, 1],
-['Robo c/A.B.', 1, 1],
-['Robo c/A.F.', 3, 4],
-['Robo Agrav.', 2, 4],
-['Robo EGT', 2, 4]
+            ['Robo', 33, 45],
+['Robo Agra.', 18, 11],
+['Hurto', 8, 10],
+['Hurto Agra.', 3, 7],
+['Robo A/F', 7, 3],
+['Robo x Escala', 5, 4],
+['Robo EGT', 3, 3],
+['Robo A/B', 4, 2],
+['Robo en Banda', 2, 1],
+['Hurto EGT', 2, 0],
+['Robo Agra. EGT', 2, 0]
           ]);
           var options = {
             title: 'Análisis estadístico de los Delitos',
@@ -93,13 +85,13 @@
         function drawChartDias() {
           var data = google.visualization.arrayToDataTable([
             ['Categoría', 'Periodo 1', 'Periodo 2'],
-            ['Jueves', 16, 6],
-['Viernes', 14, 9],
-['Martes', 6, 4],
-['Miércoles', 13, 10],
-['Sábado', 6, 7],
-['Domingo', 5, 10],
-['Lunes', 6, 14]
+            ['Martes', 14, 19],
+['Domingo', 21, 9],
+['Viernes', 10, 19],
+['Lunes', 14, 9],
+['Sábado', 11, 9],
+['Miércoles', 7, 12],
+['Jueves', 10, 9]
           ]);
           var options = {
             title: 'Análisis por Día de la Semana',
@@ -115,10 +107,10 @@
         function drawChartHorario() {
           var data = google.visualization.arrayToDataTable([
             ['Categoría', 'Periodo 1', 'Periodo 2'],
-            ['🌆 Noche (18:00 - 23:59)', 26, 16],
-['🌙 Madrugada (00:00 - 05:59)', 17, 12],
-['☀️ Tarde (12:00 - 17:59)', 16, 15],
-['🌤️ Mañana (06:00 - 11:59)', 7, 17]
+            ['🌙 Madrugada (00:00 - 05:59)', 26, 30],
+['🌆 Noche (18:00 - 23:59)', 17, 25],
+['☀️ Tarde (12:00 - 17:59)', 21, 17],
+['🌤️ Mañana (06:00 - 11:59)', 23, 14]
           ]);
           var options = {
             title: 'Análisis por Rango Horario',
@@ -136,23 +128,15 @@
         function drawChartDependencias() {
           var data = google.visualization.arrayToDataTable([
             ['Categoría', 'Periodo 1', 'Periodo 2'],
-            ['Cria__7', 3, 1],
-['SC_ZIM', 3, 1],
-['Cria__4', 11, 6],
-['Cria_27', 5, 3],
-['Cria__3', 8, 5],
-['Cria_37', 3, 2],
-['Cria_52', 3, 2],
-['SC_GB', 3, 2],
-['Cria_34', 7, 5],
-['Cria__1', 1, 1],
-['Cria__5', 5, 5],
-['Cria_40', 4, 5],
-['Cria_33', 4, 6],
-['Cria_59', 3, 5],
-['Cria__2', 1, 2],
-['Cria_50', 2, 5],
-['Cria__6', 0, 4]
+            ['Cria_27', 1, 2],
+['Cria_34', 18, 15],
+['Cria_37', 12, 15],
+['Cria_40', 17, 18],
+['Cria_50', 4, 2],
+['Cria_52', 6, 5],
+['Cria_7', 15, 11],
+['SC_GB', 5, 6],
+['SC_ZIM', 9, 12]
           ]);
           var options = {
             title: 'Análisis por Dependencia',
@@ -169,12 +153,13 @@
         function drawChartLugares() {
           var data = google.visualization.arrayToDataTable([
             ['Categoría', 'Periodo 1', 'Periodo 2'],
-            ['Vía Pública', 45, 31],
-['Comercio', 7, 7],
-['Domicilio', 13, 18],
-['Establecimiento Educativo', 1, 2],
-['Establecimiento Deportivo', 0, 1],
-['Interior taxi, Remis', 0, 1]
+            ['Vía Pública', 32, 37],
+['Domicilio', 25, 32],
+['Comercio', 27, 16],
+['Establecimiento Educativo', 1, 0],
+['Interior Transporte Publico', 1, 0],
+['Interior taxi, Remis', 1, 0],
+['Establecimiento Deportivo', 0, 1]
           ]);
           var options = {
             title: 'Análisis por Tipo de Lugar',
@@ -191,35 +176,41 @@
     </head>
     <body>
       <div class="container">
-        <h1>Análisis Estadístico Delictual Últimos 10 días de JPSD I</h1>
+        <h1>Análisis Estadístico Delictual Últimos 7 días - JPD Godoy Cruz</h1>
         <h2>📅 COMPARATIVA DEL PERÍODO</h2>
-        <p class="date-range">Periodo del 1/10/2025 al 10/10/2025 Vs. Periodo del 11/10/2025 al 20/10/2025</p>
+        <p class="date-range">Periodo del 1/11/2025 al 30/11/2025 Vs. Periodo del 1/12/2025 al 29/12/2025</p>
         
         
     <div class="summary-grid">
       <div class="summary-box">
         <div class="summary-title">Total Delitos</div>
-        <div class="summary-value">Periodo 1: 66 | Periodo 2: 60</div>
-        <div class="variation variation-down">▼ 9% (-6)</div>
+        <div class="summary-value">Periodo 1: 87 | Periodo 2: 86</div>
+        <div class="variation variation-down">
+          ▼ 1% (-1)
+        </div>
+      </div>
+      <div class="summary-box">
+      <div class="summary-title">Indicador de Estabilidad</div>
+     <div class="summary-value">Baja</div>
+      <div class="variation">La serie es irregular entre días; conviene monitorear picos y valles.</div>
+      <div style="font-size:11px;color:#555;margin-top:6px;">(CV=38% | ID=1.81 | fuera de control: 0/7 (límites ~ 1.8–22.8))</div>
       </div>
   
-    <div class="summary-box">
-      <div class="summary-title">Estabilidad del Delito</div>
-      <div class="summary-value">Periodo 2</div>
-      <div class="variation">Media</div>
-    </div>
-  
-      <div class="summary-box">
-        <div class="summary-title">Capital</div>
-        <div class="summary-value">Semana 1: 33 | Semana 2: 34</div>
-        <div class="variation variation-up">▲ 3% (+1)</div>
-      </div>
-      <div class="summary-box">
-        <div class="summary-title">Godoy Cruz</div>
-        <div class="summary-value">Semana 1: 33 | Semana 2: 26</div>
-        <div class="variation variation-down">▼ 21% (-7)</div>
-      </div>
-    </div>
+      <div class="summary-box">
+        <div class="summary-title">Capital</div>
+        <div class="summary-value">Periodo 1: 0 | Periodo 2: 0</div>
+        <div class="variation variation-stable">
+          · 0%
+        </div>
+      </div>
+      <div class="summary-box">
+        <div class="summary-title">Godoy Cruz</div>
+        <div class="summary-value">Periodo 1: 87 | Periodo 2: 86</div>
+        <div class="variation variation-down">
+          ▼ 1% (-1)
+        </div>
+      </div>
+    </div>
         
         
     <div class="header">📊 ANÁLISIS POR TIPO DE DELITO</div>
@@ -227,69 +218,67 @@
     <div class="table-container">
       <table>
         <thead>
-           <tr>
-            <th>Categoría</th>
-            <th>Periodo 1</th>
-            <th>Periodo 2</th>
-            <th>📊 Variación</th>
-          </tr>
+           <tr><th>Categoría</th><th>Periodo 1</th><th>Periodo 2</th><th>📊 Variación</th></tr>
         </thead>
-        <tbody>
-          <tr>
-              <td>Robo en Banda</td>
-              <td>1</td>
-              <td>0</td>
-              <td class="frio">▼ 100% (-1)</td>
-            </tr><tr>
-              <td>Robo Agrav. EGT</td>
-              <td>1</td>
-              <td>0</td>
-              <td class="frio">▼ 100% (-1)</td>
-            </tr><tr>
-              <td>Robo</td>
-              <td>32</td>
-              <td>26</td>
-              <td class="neutro">▼ 19% (-6)</td>
-            </tr><tr>
-              <td>Hurto Agrav.</td>
-              <td>6</td>
-              <td>5</td>
-              <td class="neutro">▼ 17% (-1)</td>
-            </tr><tr>
-              <td>Hurto</td>
-              <td>17</td>
-              <td>15</td>
-              <td class="neutro">▼ 12% (-2)</td>
-            </tr><tr>
-              <td>Robo x Esca.</td>
-              <td>1</td>
-              <td>1</td>
-              <td class="neutro">· 0% (0)</td>
-            </tr><tr>
-              <td>Robo c/A.B.</td>
-              <td>1</td>
-              <td>1</td>
-              <td class="neutro">· 0% (0)</td>
-            </tr><tr>
-              <td>Robo c/A.F.</td>
-              <td>3</td>
-              <td>4</td>
-              <td class="caliente">▲ 33% (+1)</td>
-            </tr><tr>
-              <td>Robo Agrav.</td>
-              <td>2</td>
-              <td>4</td>
-              <td class="caliente">▲ 100% (+2)</td>
-            </tr><tr>
-              <td>Robo EGT</td>
-              <td>2</td>
-              <td>4</td>
-              <td class="caliente">▲ 100% (+2)</td>
-            </tr>
-        </tbody>
+        <tbody><tr>
+      <td>Robo</td>
+      <td>33</td>
+      <td>45</td>
+      <td class="muy-caliente">▲ 36% (+12)</td>
+    </tr><tr>
+      <td>Robo Agra.</td>
+      <td>18</td>
+      <td>11</td>
+      <td class="frio">▼ 39% (-7)</td>
+    </tr><tr>
+      <td>Hurto</td>
+      <td>8</td>
+      <td>10</td>
+      <td class="caliente">▲ 25% (+2)</td>
+    </tr><tr>
+      <td>Hurto Agra.</td>
+      <td>3</td>
+      <td>7</td>
+      <td class="caliente">▲ 133% (+4)</td>
+    </tr><tr>
+      <td>Robo A/F</td>
+      <td>7</td>
+      <td>3</td>
+      <td class="frio">▼ 57% (-4)</td>
+    </tr><tr>
+      <td>Robo x Escala</td>
+      <td>5</td>
+      <td>4</td>
+      <td class="neutro">▼ 20% (-1)</td>
+    </tr><tr>
+      <td>Robo EGT</td>
+      <td>3</td>
+      <td>3</td>
+      <td class="neutro">· 0% (0)</td>
+    </tr><tr>
+      <td>Robo A/B</td>
+      <td>4</td>
+      <td>2</td>
+      <td class="frio">▼ 50% (-2)</td>
+    </tr><tr>
+      <td>Robo en Banda</td>
+      <td>2</td>
+      <td>1</td>
+      <td class="frio">▼ 50% (-1)</td>
+    </tr><tr>
+      <td>Hurto EGT</td>
+      <td>2</td>
+      <td>0</td>
+      <td class="frio">▼ 100% (-2)</td>
+    </tr><tr>
+      <td>Robo Agra. EGT</td>
+      <td>2</td>
+      <td>0</td>
+      <td class="frio">▼ 100% (-2)</td>
+    </tr></tbody>
       </table>
     </div>
-    <div class="conclusion">El análisis de delitos muestra una tendencia ▼ 9%. El mayor aumento de hechos se registró en <strong>Robo Agrav. (▲ 100% (+2))</strong>. Mientras que la mayor disminución fue en <strong>Robo en Banda (▼ 100% (-1))</strong>.</div>
+    <div class="conclusion">El análisis de delitos muestra una tendencia ▼ 1%. El mayor aumento se registró en <strong>Hurto Agra. (▲ 133% (+4))</strong>. La mayor disminución fue en <strong>Hurto EGT (▼ 100% (-2))</strong>.</div>
   
         
     <div class="header">📅 ANÁLISIS POR DÍA DE LA SEMANA</div>
@@ -297,54 +286,47 @@
     <div class="table-container">
       <table>
         <thead>
-           <tr>
-            <th>Categoría</th>
-            <th>Periodo 1</th>
-            <th>Periodo 2</th>
-            <th>📊 Variación</th>
-          </tr>
+           <tr><th>Categoría</th><th>Periodo 1</th><th>Periodo 2</th><th>📊 Variación</th></tr>
         </thead>
-        <tbody>
-          <tr>
-              <td>Jueves</td>
-              <td>16</td>
-              <td>6</td>
-              <td class="frio">▼ 63% (-10)</td>
-            </tr><tr>
-              <td>Viernes</td>
-              <td>14</td>
-              <td>9</td>
-              <td class="frio">▼ 36% (-5)</td>
-            </tr><tr>
-              <td>Martes</td>
-              <td>6</td>
-              <td>4</td>
-              <td class="frio">▼ 33% (-2)</td>
-            </tr><tr>
-              <td>Miércoles</td>
-              <td>13</td>
-              <td>10</td>
-              <td class="frio">▼ 23% (-3)</td>
-            </tr><tr>
-              <td>Sábado</td>
-              <td>6</td>
-              <td>7</td>
-              <td class="neutro">▲ 17% (+1)</td>
-            </tr><tr>
-              <td>Domingo</td>
-              <td>5</td>
-              <td>10</td>
-              <td class="caliente">▲ 100% (+5)</td>
-            </tr><tr>
-              <td>Lunes</td>
-              <td>6</td>
-              <td>14</td>
-              <td class="caliente">▲ 133% (+8)</td>
-            </tr>
-        </tbody>
+        <tbody><tr>
+      <td>Martes</td>
+      <td>14</td>
+      <td>19</td>
+      <td class="muy-caliente">▲ 36% (+5)</td>
+    </tr><tr>
+      <td>Domingo</td>
+      <td>21</td>
+      <td>9</td>
+      <td class="frio">▼ 57% (-12)</td>
+    </tr><tr>
+      <td>Viernes</td>
+      <td>10</td>
+      <td>19</td>
+      <td class="muy-caliente">▲ 90% (+9)</td>
+    </tr><tr>
+      <td>Lunes</td>
+      <td>14</td>
+      <td>9</td>
+      <td class="frio">▼ 36% (-5)</td>
+    </tr><tr>
+      <td>Sábado</td>
+      <td>11</td>
+      <td>9</td>
+      <td class="neutro">▼ 18% (-2)</td>
+    </tr><tr>
+      <td>Miércoles</td>
+      <td>7</td>
+      <td>12</td>
+      <td class="caliente">▲ 71% (+5)</td>
+    </tr><tr>
+      <td>Jueves</td>
+      <td>10</td>
+      <td>9</td>
+      <td class="neutro">▼ 10% (-1)</td>
+    </tr></tbody>
       </table>
     </div>
-    <div class="conclusion">El análisis de días de la semana muestra una tendencia ▼ 9%. El mayor aumento de hechos se registró en <strong>Lunes (▲ 133% (+8))</strong>. Mientras que la mayor disminución fue en <strong>Jueves (▼ 63% (-10))</strong>.</div>
+    <div class="conclusion">El análisis de días de la semana muestra una tendencia ▼ 1%. El mayor aumento se registró en <strong>Viernes (▲ 90% (+9))</strong>. La mayor disminución fue en <strong>Domingo (▼ 57% (-12))</strong>.</div>
   
         
     <div class="header">🕒 ANÁLISIS POR RANGO HORARIO</div>
@@ -352,39 +334,32 @@
     <div class="table-container">
       <table>
         <thead>
-           <tr>
-            <th>Categoría</th>
-            <th>Periodo 1</th>
-            <th>Periodo 2</th>
-            <th>📊 Variación</th>
-          </tr>
+           <tr><th>Categoría</th><th>Periodo 1</th><th>Periodo 2</th><th>📊 Variación</th></tr>
         </thead>
-        <tbody>
-          <tr>
-              <td>🌆 Noche (18:00 - 23:59)</td>
-              <td>26</td>
-              <td>16</td>
-              <td class="frio">▼ 38% (-10)</td>
-            </tr><tr>
-              <td>🌙 Madrugada (00:00 - 05:59)</td>
-              <td>17</td>
-              <td>12</td>
-              <td class="frio">▼ 29% (-5)</td>
-            </tr><tr>
-              <td>☀️ Tarde (12:00 - 17:59)</td>
-              <td>16</td>
-              <td>15</td>
-              <td class="neutro">▼ 6% (-1)</td>
-            </tr><tr>
-              <td>🌤️ Mañana (06:00 - 11:59)</td>
-              <td>7</td>
-              <td>17</td>
-              <td class="muy-caliente">▲ 143% (+10)</td>
-            </tr>
-        </tbody>
+        <tbody><tr>
+      <td>🌙 Madrugada (00:00 - 05:59)</td>
+      <td>26</td>
+      <td>30</td>
+      <td class="caliente">▲ 15% (+4)</td>
+    </tr><tr>
+      <td>🌆 Noche (18:00 - 23:59)</td>
+      <td>17</td>
+      <td>25</td>
+      <td class="muy-caliente">▲ 47% (+8)</td>
+    </tr><tr>
+      <td>☀️ Tarde (12:00 - 17:59)</td>
+      <td>21</td>
+      <td>17</td>
+      <td class="neutro">▼ 19% (-4)</td>
+    </tr><tr>
+      <td>🌤️ Mañana (06:00 - 11:59)</td>
+      <td>23</td>
+      <td>14</td>
+      <td class="frio">▼ 39% (-9)</td>
+    </tr></tbody>
       </table>
     </div>
-    <div class="conclusion">El análisis de rangos horarios muestra una tendencia ▼ 9%. El mayor aumento de hechos se registró en <strong>🌤️ Mañana (06:00 - 11:59) (▲ 143% (+10))</strong>. Mientras que la mayor disminución fue en <strong>🌆 Noche (18:00 - 23:59) (▼ 38% (-10))</strong>.</div>
+    <div class="conclusion">El análisis de rangos horarios muestra una tendencia ▼ 1%. El mayor aumento se registró en <strong>🌆 Noche (18:00 - 23:59) (▲ 47% (+8))</strong>. La mayor disminución fue en <strong>🌤️ Mañana (06:00 - 11:59) (▼ 39% (-9))</strong>.</div>
   
         
     <div class="header">📍 ANÁLISIS POR DEPENDENCIA</div>
@@ -392,104 +367,57 @@
     <div class="table-container">
       <table>
         <thead>
-           <tr>
-            <th>Categoría</th>
-            <th>Periodo 1</th>
-            <th>Periodo 2</th>
-            <th>📊 Variación</th>
-          </tr>
+           <tr><th>Categoría</th><th>Periodo 1</th><th>Periodo 2</th><th>📊 Variación</th></tr>
         </thead>
-        <tbody>
-          <tr>
-              <td>Cria__7</td>
-              <td>3</td>
-              <td>1</td>
-              <td class="frio">▼ 67% (-2)</td>
-            </tr><tr>
-              <td>SC_ZIM</td>
-              <td>3</td>
-              <td>1</td>
-              <td class="frio">▼ 67% (-2)</td>
-            </tr><tr>
-              <td>Cria__4</td>
-              <td>11</td>
-              <td>6</td>
-              <td class="frio">▼ 45% (-5)</td>
-            </tr><tr>
-              <td>Cria_27</td>
-              <td>5</td>
-              <td>3</td>
-              <td class="frio">▼ 40% (-2)</td>
-            </tr><tr>
-              <td>Cria__3</td>
-              <td>8</td>
-              <td>5</td>
-              <td class="frio">▼ 38% (-3)</td>
-            </tr><tr>
-              <td>Cria_37</td>
-              <td>3</td>
-              <td>2</td>
-              <td class="frio">▼ 33% (-1)</td>
-            </tr><tr>
-              <td>Cria_52</td>
-              <td>3</td>
-              <td>2</td>
-              <td class="frio">▼ 33% (-1)</td>
-            </tr><tr>
-              <td>SC_GB</td>
-              <td>3</td>
-              <td>2</td>
-              <td class="frio">▼ 33% (-1)</td>
-            </tr><tr>
-              <td>Cria_34</td>
-              <td>7</td>
-              <td>5</td>
-              <td class="frio">▼ 29% (-2)</td>
-            </tr><tr>
-              <td>Cria__1</td>
-              <td>1</td>
-              <td>1</td>
-              <td class="neutro">· 0% (0)</td>
-            </tr><tr>
-              <td>Cria__5</td>
-              <td>5</td>
-              <td>5</td>
-              <td class="neutro">· 0% (0)</td>
-            </tr><tr>
-              <td>Cria_40</td>
-              <td>4</td>
-              <td>5</td>
-              <td class="caliente">▲ 25% (+1)</td>
-            </tr><tr>
-              <td>Cria_33</td>
-              <td>4</td>
-              <td>6</td>
-              <td class="caliente">▲ 50% (+2)</td>
-            </tr><tr>
-              <td>Cria_59</td>
-              <td>3</td>
-              <td>5</td>
-              <td class="caliente">▲ 67% (+2)</td>
-            </tr><tr>
-              <td>Cria__2</td>
-              <td>1</td>
-              <td>2</td>
-              <td class="caliente">▲ 100% (+1)</td>
-            </tr><tr>
-              <td>Cria_50</td>
-              <td>2</td>
-              <td>5</td>
-              <td class="caliente">▲ 150% (+3)</td>
-            </tr><tr>
-              <td>Cria__6</td>
-              <td>0</td>
-              <td>4</td>
-              <td class="caliente">▲ ∞ (+4)</td>
-            </tr>
-        </tbody>
+        <tbody><tr>
+      <td>Cria_27</td>
+      <td>1</td>
+      <td>2</td>
+      <td class="caliente">▲ 100% (+1)</td>
+    </tr><tr>
+      <td>Cria_34</td>
+      <td>18</td>
+      <td>15</td>
+      <td class="neutro">▼ 17% (-3)</td>
+    </tr><tr>
+      <td>Cria_37</td>
+      <td>12</td>
+      <td>15</td>
+      <td class="muy-caliente">▲ 25% (+3)</td>
+    </tr><tr>
+      <td>Cria_40</td>
+      <td>17</td>
+      <td>18</td>
+      <td class="caliente">▲ 6% (+1)</td>
+    </tr><tr>
+      <td>Cria_50</td>
+      <td>4</td>
+      <td>2</td>
+      <td class="frio">▼ 50% (-2)</td>
+    </tr><tr>
+      <td>Cria_52</td>
+      <td>6</td>
+      <td>5</td>
+      <td class="neutro">▼ 17% (-1)</td>
+    </tr><tr>
+      <td>Cria_7</td>
+      <td>15</td>
+      <td>11</td>
+      <td class="frio">▼ 27% (-4)</td>
+    </tr><tr>
+      <td>SC_GB</td>
+      <td>5</td>
+      <td>6</td>
+      <td class="neutro">▲ 20% (+1)</td>
+    </tr><tr>
+      <td>SC_ZIM</td>
+      <td>9</td>
+      <td>12</td>
+      <td class="muy-caliente">▲ 33% (+3)</td>
+    </tr></tbody>
       </table>
     </div>
-    <div class="conclusion">El análisis de dependencias muestra una tendencia ▼ 9%. El mayor aumento de hechos se registró en <strong>Cria__6 (▲ ∞ (+4))</strong>. Mientras que la mayor disminución fue en <strong>Cria__7 (▼ 67% (-2))</strong>.</div>
+    <div class="conclusion">El análisis de dependencias muestra una tendencia ▼ 1%. El mayor aumento se registró en <strong>Cria_27 (▲ 100% (+1))</strong>. La mayor disminución fue en <strong>Cria_50 (▼ 50% (-2))</strong>.</div>
   
         
     <div class="header">🏠 ANÁLISIS POR TIPO DE LUGAR</div>
@@ -497,60 +425,203 @@
     <div class="table-container">
       <table>
         <thead>
-           <tr>
-            <th>Categoría</th>
-            <th>Periodo 1</th>
-            <th>Periodo 2</th>
-            <th>📊 Variación</th>
-          </tr>
+           <tr><th>Categoría</th><th>Periodo 1</th><th>Periodo 2</th><th>📊 Variación</th></tr>
         </thead>
-        <tbody>
-          <tr>
-              <td>Vía Pública</td>
-              <td>45</td>
-              <td>31</td>
-              <td class="frio">▼ 31% (-14)</td>
-            </tr><tr>
-              <td>Comercio</td>
-              <td>7</td>
-              <td>7</td>
-              <td class="neutro">· 0% (0)</td>
-            </tr><tr>
-              <td>Domicilio</td>
-              <td>13</td>
-              <td>18</td>
-              <td class="muy-caliente">▲ 38% (+5)</td>
-            </tr><tr>
-              <td>Establecimiento Educativo</td>
-              <td>1</td>
-              <td>2</td>
-              <td class="caliente">▲ 100% (+1)</td>
-            </tr><tr>
-              <td>Establecimiento Deportivo</td>
-              <td>0</td>
-              <td>1</td>
-              <td class="caliente">▲ ∞ (+1)</td>
-            </tr><tr>
-              <td>Interior taxi, Remis</td>
-              <td>0</td>
-              <td>1</td>
-              <td class="caliente">▲ ∞ (+1)</td>
-            </tr>
-        </tbody>
+        <tbody><tr>
+      <td>Vía Pública</td>
+      <td>32</td>
+      <td>37</td>
+      <td class="caliente">▲ 16% (+5)</td>
+    </tr><tr>
+      <td>Domicilio</td>
+      <td>25</td>
+      <td>32</td>
+      <td class="muy-caliente">▲ 28% (+7)</td>
+    </tr><tr>
+      <td>Comercio</td>
+      <td>27</td>
+      <td>16</td>
+      <td class="frio">▼ 41% (-11)</td>
+    </tr><tr>
+      <td>Establecimiento Educativo</td>
+      <td>1</td>
+      <td>0</td>
+      <td class="frio">▼ 100% (-1)</td>
+    </tr><tr>
+      <td>Interior Transporte Publico</td>
+      <td>1</td>
+      <td>0</td>
+      <td class="frio">▼ 100% (-1)</td>
+    </tr><tr>
+      <td>Interior taxi, Remis</td>
+      <td>1</td>
+      <td>0</td>
+      <td class="frio">▼ 100% (-1)</td>
+    </tr><tr>
+      <td>Establecimiento Deportivo</td>
+      <td>0</td>
+      <td>1</td>
+      <td class="caliente">nuevo registro (+1)</td>
+    </tr></tbody>
       </table>
     </div>
-    <div class="conclusion">El análisis de tipos de lugar muestra una tendencia ▼ 9%. El mayor aumento de hechos se registró en <strong>Establecimiento Deportivo (▲ ∞ (+1))</strong>. Mientras que la mayor disminución fue en <strong>Vía Pública (▼ 31% (-14))</strong>.</div>
+    <div class="conclusion">El análisis de tipos de lugar muestra una tendencia ▼ 1%. El mayor aumento se registró en <strong>Establecimiento Deportivo (nuevo registro (+1))</strong>. La mayor disminución fue en <strong>Establecimiento Educativo (▼ 100% (-1))</strong>.</div>
   
+
+        <!-- NUEVO: TABLA POR JEFATURA/GRUPO -->
+        
 
         <hr style="border: 1px solid #eee;">
         <div class="conclusion">
-          <p><strong>🏁 CONCLUSIÓN GENERAL:</strong> En conclusión, el período muestra un **disminución (▼ 9% (-6))** en la totalidad de hechos delictivos. Se recomienda prestar especial atención a las tendencias identificadas en los análisis detallados.</p>
+          <p><strong>🏁 CONCLUSIÓN GENERAL:</strong> En conclusión, el período muestra un/a <strong>disminución (▼ 1% (-1))</strong> en la totalidad de hechos delictivos. Se recomienda prestar especial atención a las tendencias identificadas en los análisis detallados.</p>
+          
+  <div class="header">Diagnóstico automático</div>
+  <div style="border:1px solid #ddd;border-radius:10px;padding:12px;background:#fff;margin:10px 0;
+              max-width:880px;margin-left:auto;margin-right:auto;">
+    <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:14px;align-items:center;">
+      <div>
+        <div style="font-weight:700;font-size:14px;margin-bottom:4px;">Indicador de Estabilidad: Baja</div>
+        <div style="font-size:12px;color:#555;line-height:1.35;">CV=38% | ID=1.81 | fuera de control: 0/7 (límites ~ 1.8–22.8)</div>
+      </div>
+      <div style="min-width:260px;position:relative;">
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;">
+          
+            <div style="
+              background:#e53935;
+              color:#fff;border-radius:6px;padding:6px 8px;text-align:center;
+              border:1px solid rgba(0,0,0,.15);
+              box-shadow:0 0 0 2px #000 inset;font-weight:700;
+            ">Baja</div>
+          
+            <div style="
+              background:#f39c12;
+              color:#fff;border-radius:6px;padding:6px 8px;text-align:center;
+              border:1px solid rgba(0,0,0,.15);
+              
+            ">Media</div>
+          
+            <div style="
+              background:#43a047;
+              color:#fff;border-radius:6px;padding:6px 8px;text-align:center;
+              border:1px solid rgba(0,0,0,.15);
+              
+            ">Alta</div>
+          
+            <div style="
+              background:#1e88e5;
+              color:#fff;border-radius:6px;padding:6px 8px;text-align:center;
+              border:1px solid rgba(0,0,0,.15);
+              
+            ">Muy Alta</div>
+          
+        </div>
+        <div style="position:absolute;left:calc(12.5% - 8px);top:-10px;
+          width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;
+          border-bottom:10px solid #424242;"></div>
+      </div>
+    </div>
+    <div style="margin-top:8px;font-size:11px;color:#666;line-height:1.35;">
+      <b>Método.</b> Coef. de Variación (CV), Índice de Dispersión (ID) y control Poisson (±3σ). 
+      <em>CV</em>: variabilidad relativa; <em>ID≈1</em> sugiere patrón Poisson; “fuera de control” = días fuera de ±3σ.
+    </div>
+  </div>
+          
+    <div class="header">Distribución semanal (último período)</div>
+    <div style="border:1px solid #ddd;border-radius:8px;padding:12px;background:#fff;margin:10px 0;">
+      <div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+        <div title="Domingo: 9" style="width:40px;height:24px;border-radius:6px;background:hsl(111, 85%, 50%);border:1px solid rgba(0,0,0,0.08);"></div>
+        <div style="font-size:10px;color:#444;">Dom</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+        <div title="Lunes: 9" style="width:40px;height:24px;border-radius:6px;background:hsl(111, 85%, 50%);border:1px solid rgba(0,0,0,0.08);"></div>
+        <div style="font-size:10px;color:#444;">Lun</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+        <div title="Martes: 19" style="width:40px;height:24px;border-radius:6px;background:hsl(0, 85%, 50%);border:1px solid rgba(0,0,0,0.08);"></div>
+        <div style="font-size:10px;color:#444;">Mar</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+        <div title="Miércoles: 12" style="width:40px;height:24px;border-radius:6px;background:hsl(77, 85%, 50%);border:1px solid rgba(0,0,0,0.08);"></div>
+        <div style="font-size:10px;color:#444;">Mié</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+        <div title="Jueves: 9" style="width:40px;height:24px;border-radius:6px;background:hsl(111, 85%, 50%);border:1px solid rgba(0,0,0,0.08);"></div>
+        <div style="font-size:10px;color:#444;">Jue</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+        <div title="Viernes: 19" style="width:40px;height:24px;border-radius:6px;background:hsl(0, 85%, 50%);border:1px solid rgba(0,0,0,0.08);"></div>
+        <div style="font-size:10px;color:#444;">Vie</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+        <div title="Sábado: 9" style="width:40px;height:24px;border-radius:6px;background:hsl(111, 85%, 50%);border:1px solid rgba(0,0,0,0.08);"></div>
+        <div style="font-size:10px;color:#444;">Sáb</div>
+      </div></div>
+      <div style="margin-top:8px;font-size:11px;color:#666;text-align:center;">
+        Intensidad proporcional a los conteos del último período (s2).
+      </div>
+    </div>
+          
+  <div class="header">Sugerencias del S.A.T</div>
+  <div style="border:1px solid #e53935;border-left-width:6px;border-radius:10px;padding:16px 16px 12px;background:#fff7f7;margin:12px 0;">
+    <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;">
+      <div style="flex:1;min-width:260px">
+        <div style="font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px;color:#e53935;">
+          <span>🧭 Lectura</span>
+        </div>
+        <div style="margin-top:4px;font-size:13.5px;line-height:1.5;color:#2b2b2b;">
+          Se observa irregularidad alta entre días; es necesario monitorear picos y valles, reforzar ventanas críticas y aplicar medidas situacionales.
+        </div>
+        <div style="margin-top:6px;font-size:13px;color:#1f2937;">
+          <b>Lo que significa que:</b> Riesgo alto de sobresaltos. El patrón es errático: podría aparecer sobrecarga puntual si no se interviene.
+        </div>
+        <div style="margin-top:8px;font-size:12.5px;line-height:1.45;color:#374151;">
+          <b>Fundamento técnico:</b> Sustento: CV elevado y/o ID>1 con días cercanos o fuera de ±3σ (proceso menos estable).<br>
+          <span style="color:#6b7280;">(Valores actuales: CV=38% | ID=1.81 | fuera de control: 0/7 (límites ~ 1.8–22.8))</span>
+        </div>
+      </div>
+
+      <div style="flex:1;min-width:260px;display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div style="background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:8px;padding:10px;">
+          <div style="font-size:12px;color:#555;margin-bottom:6px;"><b>Días destacados</b></div>
+          <span style="display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid rgba(0,0,0,.08);background:#eef2ff;color:#1e3a8a;font-size:12px;margin:3px;">Martes</span> <span style="display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid rgba(0,0,0,.08);background:#eef2ff;color:#1e3a8a;font-size:12px;margin:3px;">Viernes</span>
+        </div>
+        <div style="background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:8px;padding:10px;">
+          <div style="font-size:12px;color:#555;margin-bottom:6px;"><b>Rangos horarios</b></div>
+          <span style="display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid rgba(0,0,0,.08);background:#eef2ff;color:#1e3a8a;font-size:12px;margin:3px;">🌙 Madrugada (00:00 - 05:59)</span> <span style="display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid rgba(0,0,0,.08);background:#eef2ff;color:#1e3a8a;font-size:12px;margin:3px;">🌆 Noche (18:00 - 23:59)</span>
+        </div>
+        <div style="background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:8px;padding:10px;">
+          <div style="font-size:12px;color:#555;margin-bottom:6px;"><b>Dependencias</b></div>
+          <span style="display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid rgba(0,0,0,.08);background:#eef2ff;color:#1e3a8a;font-size:12px;margin:3px;">Cria_40</span> <span style="display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid rgba(0,0,0,.08);background:#eef2ff;color:#1e3a8a;font-size:12px;margin:3px;">Cria_34</span> <span style="display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid rgba(0,0,0,.08);background:#eef2ff;color:#1e3a8a;font-size:12px;margin:3px;">Cria_27</span>
+        </div>
+        <div style="background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:8px;padding:10px;">
+          <div style="font-size:12px;color:#555;margin-bottom:6px;"><b>Tipos de lugar</b></div>
+          <span style="display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid rgba(0,0,0,.08);background:#eef2ff;color:#1e3a8a;font-size:12px;margin:3px;">Vía Pública</span> <span style="display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid rgba(0,0,0,.08);background:#eef2ff;color:#1e3a8a;font-size:12px;margin:3px;">Domicilio</span> <span style="display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid rgba(0,0,0,.08);background:#eef2ff;color:#1e3a8a;font-size:12px;margin:3px;">Establecimiento Deportivo</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:12px;padding-top:10px;border-top:1px dashed rgba(0,0,0,.12);">
+      <div style="font-weight:700;font-size:14px;margin-bottom:6px;display:flex;align-items:center;gap:6px;">
+        🛠️ Sugerencias
+      </div>
+
+      <!-- LISTA ENUMERADA (esto faltaba) -->
+      <ol style="margin:0 0 6px 18px;padding-left:18px;color:#2b2b2b;text-align:justify;">
+        <li style="margin:6px 0;font-size:13.5px;line-height:1.55;"><b>Refuerzo focal</b> en <b>Cria_40</b> durante <b>🌙 Madrugada (00:00 - 05:59)</b> con <b>patrullaje visible</b> y <b>contacto con referentes barriales</b>.</li><li style="margin:6px 0;font-size:13.5px;line-height:1.55;"><b>Prevención situacional</b> en <b>Vía Pública</b>: <b>iluminación</b>, <b>cierres</b>, <b>cámaras/vecinales</b> y <b>controles dinámicos</b>.</li><li style="margin:6px 0;font-size:13.5px;line-height:1.55;"><b>Alerta temprana</b>: si el <b>Viernes</b> supera <b>±3σ</b>, <b>activar refuerzo por 48 h</b> e <b>intensificar supervisión</b>.</li><li style="margin:6px 0;font-size:13.5px;line-height:1.55;"><b>Coordinación operativa</b> para <b>retroalimentar modus operandi</b> y <b>ajustar cuadrantes/rutas</b>.</li><li style="margin:6px 0;font-size:13.5px;line-height:1.55;"><b>Comunicación</b> y <b>presencia selectiva</b> en <b>puntos calientes</b> para <b>disuasión temprana</b>.</li><li style="margin:6px 0;font-size:13.5px;line-height:1.55;"><b>Revisión</b> de <b>aprehensiones/causas recientes</b> para detectar <b>reincidencias</b> y <b>oportunidades investigativas</b>.</li>
+      </ol>
+
+      <div style="font-size:11.5px;color:#6b7280;margin-top:8px;">
+        Nota: “Destacados” combina <b>volumen reciente (s2)</b> y <b>dinámica</b> (variación positiva) como referencia operativa.
+      </div>
+    </div>
+  </div>
         </div>
 
         <div class="footer">
-          <p>📌 Fuente: Hechos delictivos Reales constatados con intervención directa de efectivos policiales, y cargados al S.A.T. (Sistema de Alerta Temprana) - JPSD I</p>
-          <p>📎 Of. Virtual de análisis estadístico delictivo y operacional</p>
-          <p>👤 Of. Ppal. Lic. González Sebastian</p>
+          <p>📌 Fuente: S.A.T. (Sistema de Análisis Territorial) - Intervenciones policiales - JPSD I</p>
+          <p>📎 Oficina Virtual de Análisis Estadístico Delictivo y Operacional</p>
+          <p>👤 Desarrollador: Of. Ppal. Lic. González Sebastián</p>
         </div>
       </div>
     </body>
